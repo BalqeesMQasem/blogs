@@ -28,6 +28,6 @@ In this repositre you will find a simple API using Python Django language.
 
 </ol> 
 
-# POSTMAN published documentation
+# POSTMAN published documentation:
 
-     [published documentation](https://documenter.getpostman.com/view/27787866/2s93si2ABz)
+   [published documentation](https://documenter.getpostman.com/view/27787866/2s93si2ABz)
