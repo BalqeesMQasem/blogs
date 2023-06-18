@@ -23,12 +23,9 @@ def index_blogs(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def show_blog(request, blog_id):
-    try:
-        blog = Blog.objects.get(id=blog_id)
-        serializer = BlogSerializer(blog)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    except Blog.DoesNotExist:
-        return Response({"message": "Blog not found"}, status=status.HTTP_404_NOT_FOUND)
+     blog = get_object_or_404(Blog, pk = blog_id)
+     serializer = BlogSerializer(blog)
+     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 #/blogs/create/
