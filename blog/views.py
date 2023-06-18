@@ -24,7 +24,7 @@ def index_blogs(request):
 @permission_classes([IsAuthenticated])
 def show_blog(request, blog_id):
      blog = get_object_or_404(Blog, pk = blog_id)
-     serializer = BlogSerializer(blog)
+     serializer = BlogSerializer(blog, many=False)
      return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -32,7 +32,7 @@ def show_blog(request, blog_id):
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def create_blog(request):
-    serializer = UpdateCreateBlogSerializer(data=request.data)
+    serializer = UpdateCreateBlogSerializer(data=request.data, many=False)
     if serializer.is_valid():
         serializer.save(author=request.user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -48,7 +48,7 @@ def update_blog(request, pk):
             {'error': 'You are not allowed to update this blog.'},
             status=status.HTTP_401_UNAUTHORIZED
         )
-    serializer = UpdateCreateBlogSerializer(blog, data=request.data)
+    serializer = UpdateCreateBlogSerializer(blog, data=request.data, many=False)
     if serializer.is_valid():
         serializer.save(author=request.user)
         return Response(serializer.data)
