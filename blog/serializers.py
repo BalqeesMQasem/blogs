@@ -11,6 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 # Add blog serializer 
+# I have 2 different serializers to show blogs with auther data at index and show endpoints.
 class BlogSerializer(serializers.ModelSerializer):
     author = UserSerializer()
     class Meta:
