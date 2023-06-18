@@ -7,10 +7,10 @@ In this repository, you will find a simple API built by using Python Django.
   <li>Clone the project to your own machine. </li> 
   <li>Create a virtual environment by running the following command: </li> 
 
-  **For Windows:**
+  **For Windows:**<br>
           `python -m venv venv`
 
-  **For macOS/Linux:**
+  **For macOS/Linux:**<br>
           `python3 -m venv venv`
 
 
