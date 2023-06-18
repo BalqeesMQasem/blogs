@@ -30,7 +30,11 @@ In this repository, you will find a simple API built by using Python Django.
 
         pip install -r requirements.txt 
 
+  <li>Now you can run the project by the following command:</li>
+
+        python3 manage.py runserver  
 </ol> 
+
 
 <h3> POSTMAN published documentation: </h3>
 
