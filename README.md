@@ -1,6 +1,6 @@
 # Blogs API
 
-**In this repository, you will find a simple API built by using Python Django.**
+**In this repository, you will find a simple API built by using Python Django.**<br>
 **Our main mission is to build full Blogs CRUD operations API, allowing users to create, update, index, and delete blogs.**
 
 <h3> How to start:</h3>
