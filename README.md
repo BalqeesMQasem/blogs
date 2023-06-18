@@ -1,8 +1,8 @@
 # Blogs API
 
-In this repositre you will find a simple API using Python Django language.
+In this repository, you will find a simple API built by using Python Django language.
 
-## How to start:
+<h5> How to start:</h5>
 <ol>
   <li>Clone the project to your own machine </li> 
   <li>Create a virtual environment by running the following command: </li> 
