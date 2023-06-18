@@ -45,10 +45,10 @@ def create_blog(request):
 @api_view(['PUT'])
 def update_blog(request, pk):
     blog = get_object_or_404(Blog, pk = pk)
-    # Check if the user is the owner of the blo
+    # Check if the user is the owner of the blog
     if blog.author != request.user:
         return Response(
-            {'error': 'You are not allowed to update this article.'},
+            {'error': 'You are not allowed to update this blog.'},
             status=status.HTTP_401_UNAUTHORIZED
         )
     serializer = UpdateCreateBlogSerializer(blog, data=request.data)
@@ -57,7 +57,18 @@ def update_blog(request, pk):
         return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['DELETE'])
+def delete_blog(request, pk):
+    blog = get_object_or_404(Blog, pk = pk)
+    # Check if the user is the owner of the blog
+    if blog.author != request.user:
+        return Response(
+            {'error': 'You are not allowed to update this blog.'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
 
+    blog.delete()
+    return Response(status=status.HTTP_200_OK)
 
 #/blogs/get-csrf-token/
 def csrf_token_view(request):
@@ -70,4 +81,3 @@ def current_user(request):
     user = request.user 
     serializer = UserSerializer(user, many = False)
     return Response(serializer.data)
-
